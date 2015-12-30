@@ -1,0 +1,18 @@
+// modal variables
+$base-border-color: #dcdcdc !default;
+$base-border-radius: em(3) !default;
+$base-background-color: #fff !default;
+$base-font-size: 1em !default;
+$base-line-height: 1.5em !default;
+$action-color: #477dca !default;
+$dark-gray: #333 !default;
+$light-gray: #ddd !default;
+$medium-screen: em(640) !default;
+$large-screen: em(860) !default;
+$base-font-color: $dark-gray !default;
+$modal-padding: 3em;
+$modal-background: $base-background-color;
+$modal-close-color: $light-gray;
+$modal-image-height: em(135);
+$modal-image-width: $modal-image-height;
+$modal-trigger-image-width: em(300);
