@@ -12,13 +12,26 @@
         <h1>Shopping List</h1>
     </header>
     <main>
-        <div id="newItem">
-            <input type="text" id="item" name="item" autocomplete="off" placeholder="Enter Item">
-            <input type="text" id="quantity" name="quantity" autocomplete="off" placeholder="Enter Quantity">
-            <input type="text" id="cost" name="cost" autocomplete="off" placeholder="Enter Cost">
-            <br /><br />
-            <button type="submit" value="Submit" id="submit">Add Item</button>
-            <button type="reset" valut="Reset" id="reset">Clear Fields</button>
+        <form id="itemForm">
+            <div id="newItem">
+                <input type="text" id="item" name="item" autocomplete="off" placeholder="Enter Item">
+                <input type="text" id="quantity" name="quantity" autocomplete="off" placeholder="Enter Quantity">
+                <input type="text" id="cost" name="cost" autocomplete="off" placeholder="Enter Cost">
+            </div>
+            <div id="wrapper">
+                <nav>
+                    <button type="submit" value="Submit" id="submit">Add Item</button>
+                    <button type="reset" valut="Reset" id="reset">Clear Fields</button>
+                </nav>
+            </div>
+        </form>
+        <div id="displayList">
+            <ul>
+                
+            </ul>
+        </div>
+        <div id="subTotal">
+            
         </div>
     </main>
     <footer>

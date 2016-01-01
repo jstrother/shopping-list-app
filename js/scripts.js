@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    $('#newItem').click(function(){
-        
+    $('#itemForm').submit(function(e) {
+        e.preventDefault();
+        console.log('Form Submitted');
     });
 });

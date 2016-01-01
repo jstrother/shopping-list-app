@@ -206,29 +206,23 @@ main {
       margin-left: 4.25532%; }
       main #newItem input:last-child {
         margin-right: 0; }
-    main #newItem button {
-      background: #182935; }
-    main #newItem #submit {
-      margin-left: 36.17021%; }
-      @media screen and (max-width: 40em) {
-        main #newItem #submit {
-          margin-left: 8.51064%; } }
-    main #newItem #reset {
-      margin-left: 13.33333%; }
   main ul {
     list-style: none; }
     main ul li {
       background: #406d8e; }
+  main #wrapper {
+    text-align: center; }
+  main nav {
+    margin: 2em auto 0 auto; }
+    main nav button {
+      background: #182935; }
+    @media screen and (max-width: 40em) {
+      main nav #submit {
+        margin-left: 8.51064%; } }
 
 footer {
-  max-width: 75em;
-  margin-left: auto;
-  margin-right: auto; }
-  footer::after {
-    clear: both;
-    content: "";
-    display: table; }
+  text-align: center; }
   footer h3 {
-    margin-left: 38.29787%; }
+    margin: 0 auto; }
 
 /*# sourceMappingURL=main.css.map */
