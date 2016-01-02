@@ -3,6 +3,9 @@
 @import 'neat/neat';
 @import 'myVariables';
 
+* {
+    // border: $testBorder;
+}
 body {
     background: $bodyColor;
 }
@@ -32,19 +35,14 @@ main {
         input {
             @include span-columns(3.25);
             @include shift(0.5);
+            color: $inputTextColor;
         }
     }
-    ul {
-        list-style: none;
-        li {
-            background: $listColor;
-        }
-    }
-    #wrapper {
+    #buttons {
         text-align: center;
     }
     nav {
-        margin: 2em auto 0 auto;
+        margin: 2em auto;
         button {
             background: $buttonColor;
         }
@@ -55,6 +53,29 @@ main {
         }
         #reset {
         }
+    }
+}
+#displayList {
+    margin-bottom: 2em;
+    @include outer-container;
+    thead {
+        @include shift(1);
+        @include outer-container;
+    }
+    tbody {
+        @include shift(1);
+        @include outer-container;
+        tr {
+            background: $trColor;
+        }
+        tr:nth-child(even) {
+            background: darken($trColor, 10%);
+        }
+    }
+    th, td {
+        @include shift(4);
+        padding-left: 2em;
+        text-align: center;
     }
 }
 footer {

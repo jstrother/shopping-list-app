@@ -203,22 +203,55 @@ main {
       display: block;
       margin-right: 2.12766%;
       width: 25.53191%;
-      margin-left: 4.25532%; }
+      margin-left: 4.25532%;
+      color: #2f3031; }
       main #newItem input:last-child {
         margin-right: 0; }
-  main ul {
-    list-style: none; }
-    main ul li {
-      background: #406d8e; }
-  main #wrapper {
+  main #buttons {
     text-align: center; }
   main nav {
-    margin: 2em auto 0 auto; }
+    margin: 2em auto; }
     main nav button {
       background: #182935; }
     @media screen and (max-width: 40em) {
       main nav #submit {
         margin-left: 8.51064%; } }
+
+#displayList {
+  margin-bottom: 2em;
+  max-width: 75em;
+  margin-left: auto;
+  margin-right: auto; }
+  #displayList::after {
+    clear: both;
+    content: "";
+    display: table; }
+  #displayList thead {
+    margin-left: 26.66667%;
+    max-width: 75em;
+    margin-left: auto;
+    margin-right: auto; }
+    #displayList thead::after {
+      clear: both;
+      content: "";
+      display: table; }
+  #displayList tbody {
+    margin-left: 8.51064%;
+    max-width: 75em;
+    margin-left: auto;
+    margin-right: auto; }
+    #displayList tbody::after {
+      clear: both;
+      content: "";
+      display: table; }
+    #displayList tbody tr {
+      background: #192b38; }
+    #displayList tbody tr:nth-child(even) {
+      background: #091015; }
+  #displayList th, #displayList td {
+    margin-left: 34.04255%;
+    padding-left: 2em;
+    text-align: center; }
 
 footer {
   text-align: center; }
