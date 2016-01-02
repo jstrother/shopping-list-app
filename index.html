@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Shopping List</title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="css/normalize.css" type="text/css">
     <link rel="stylesheet" href="css/main.css" type="text/css">
 </head>
@@ -18,17 +19,27 @@
                 <input type="text" id="quantity" name="quantity" autocomplete="off" placeholder="Enter Quantity">
                 <input type="text" id="cost" name="cost" autocomplete="off" placeholder="Enter Cost">
             </div>
-            <div id="wrapper">
+            <div id="buttons">
                 <nav>
                     <button type="submit" value="Submit" id="submit">Add Item</button>
                     <button type="reset" valut="Reset" id="reset">Clear Fields</button>
                 </nav>
             </div>
         </form>
-        <div id="displayList">
-            <ul>
-                
-            </ul>
+        <div>
+            <table id="displayList">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Cost</th>
+                        <th>Done</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
         </div>
         <div id="subTotal">
             
@@ -37,6 +48,8 @@
     <footer>
         <h3>made by Jim Strother</h3>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/scripts.js" type="text/javascript"></script>
 </body>
 </html>
