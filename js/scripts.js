@@ -34,7 +34,7 @@ $(document).ready(function() {
     $('#reset').click(function(e) {
         e.preventDefault();
         // clearing input field values
-        $('#item').val('');
+        $('#item').val('').focus();
         $('#quantity').val('');
         $('#cost').val('');
     });
