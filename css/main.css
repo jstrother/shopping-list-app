@@ -245,13 +245,15 @@ main {
       content: "";
       display: table; }
     #displayList tbody tr {
-      background: #192b38; }
+      background: #21394a; }
     #displayList tbody tr:nth-child(even) {
-      background: #091015; }
+      background: #111d26; }
   #displayList th, #displayList td {
     margin-left: 34.04255%;
     padding-left: 2em;
     text-align: center; }
+  #displayList tfoot {
+    margin-top: 3em; }
 
 footer {
   text-align: center; }

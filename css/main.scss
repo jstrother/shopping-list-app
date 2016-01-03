@@ -66,16 +66,19 @@ main {
         @include shift(1);
         @include outer-container;
         tr {
-            background: $trColor;
+            background: lighten($trColor, 5%);
         }
         tr:nth-child(even) {
-            background: darken($trColor, 10%);
+            background: darken($trColor, 5%);
         }
     }
     th, td {
         @include shift(4);
         padding-left: 2em;
         text-align: center;
+    }
+    tfoot {
+        margin-top: 3em;
     }
 }
 footer {

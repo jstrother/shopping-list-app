@@ -38,11 +38,13 @@ $(document).ready(function() {
         $('#quantity').val('');
         $('#cost').val('');
     });
-    checkDone();
+    // moves item to <tfoot> when marked as done, returns to main list when unchecked
+    $('#done').change(function() {
+        if (this.checked) {
+            $('tfoot').append($(this).parent().parent());
+        } else {
+            $('tbody').append($(this).parent().parent());
+        }
+    });
 });
-// I think I'm on the right track with this.  Trying to filter the <tr> to the <tfooter> to get it out of the main list. If unchecked, it will go back to <tbody>.
-function checkDone() {
-    if ($('#done').prop('checked)')) {
-        console.log('hurrah!');
-    }
-}
+    
