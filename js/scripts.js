@@ -39,12 +39,12 @@ $(document).ready(function() {
         $('#cost').val('');
     });
     // moves item to <tfoot> when marked as done, returns to main list when unchecked
-    $('#done').change(function() {
-        if (this.checked) {
-            $('tfoot').append($(this).parent().parent());
-        } else {
-            $('tbody').append($(this).parent().parent());
-        }
+    $('#markDone').click(function(e) {
+        $('#done').change(function() {
+            if (this.checked) {
+                $('tfoot').append($(this).parent().parent()); // so far, this is doing something, but not what I want.  it is creating a new row, but it doesn't seem to be in <tfoot> and is empty of values.  the original stays the same in <tbody>
+            }
+        });
     });
 });
     
