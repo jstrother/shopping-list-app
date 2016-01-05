@@ -42,14 +42,14 @@ $(document).ready(function() {
     $('#markDone').click(function(e) {
         $('#done').change(function() {
             if (this.checked) {
-                $('tfoot').append($(this).parent()); // so far, this is doing something, but not what I want.  it is creating a new row, but it doesn't seem to be in <tfoot> and is empty of values.  the original stays the same in <tbody>
+                $('tfoot').append($(this).parentsUntil('tbody')); // so far, this is doing something, but not what I want.  it is creating a new row, but it doesn't seem to be in <tfoot> and is empty of values.  the original stays the same in <tbody>
             }
         });
     });
     // trying to delete item from list completely, so far something is happening, but it is the same as markDone above
     $('#remove').click(function(e) {
         if (this.checked) {
-            $(this).parentsUntil('td', 'tr').remove();
+            $(this).parentsUntil('tbody').remove();
         }
     });
 });
