@@ -79,6 +79,9 @@ main {
     }
     tfoot {
         margin-top: 3em;
+        tr.move {
+           background: $doneItemColor !important;
+        }
     }
 }
 footer {

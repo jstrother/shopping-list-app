@@ -254,6 +254,8 @@ main {
     text-align: center; }
   #displayList tfoot {
     margin-top: 3em; }
+    #displayList tfoot tr.move {
+      background: #8c8c8c !important; }
 
 footer {
   text-align: center; }

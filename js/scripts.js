@@ -3,20 +3,20 @@ $(document).ready(function() {
     $('#itemForm').submit(function(e) {
         e.preventDefault();
         // declared variables
-        var counter = $('#displayList tbody').children().length;
+        var counter = $('tbody').children().length;
         var item = $('#item').val();
         var quantity = $('#quantity').val();
         var cost = $('#cost').val();
         var done = $('<td><input type=\"checkbox\" class=\"done\" name=\"done\" value=\"Done\"></td>');
         var remove = $('<td><input type=\"checkbox\" class=\"delete\" name=\"delete\" value=\"Delete\"></td>');
-        var tr = $('<tr id=' + counter + '>').append($('<td>').text(item)).append($('<td>').text(quantity)).append($('<td>').text(cost)).append(done).append(remove);
+        var tr = $('<tr id=tr' + counter + '>').append($('<td>').text(item)).append($('<td>').text(quantity)).append($('<td>').text(cost)).append(done).append(remove);
         var fixHelper = function(e, ui) {
             ui.children().each(function() {
                 $(this).width($(this).width());
             });
             return ui;
         };
-        $('#displayList tbody').append(tr);
+        $('tbody').append(tr);
         $('tbody').sortable({
             helper: fixHelper,
             axis: 'y',
@@ -26,30 +26,30 @@ $(document).ready(function() {
                 ui.draggable;
             }
         });
-        // clearing input field values
-        $('#item').val('').focus();
-        $('#quantity').val('');
-        $('#cost').val('');
+        resetInputs();
     });
-    $('#reset').click(function(e) {
+    $('#resetButton').click(function(e) {
         e.preventDefault();
-        // clearing input field values
-        $('#item').val('').focus();
-        $('#quantity').val('');
-        $('#cost').val('');
+        resetInputs();
     });
     // moves item to <tfoot> when marked as done, returns to main list when unchecked
-    $('#markDone').on('click', function() {
-        // e.preventDefault();
-        if ($('.done').checked) {
-            $('tfoot').append($('.done').parentsUntil('tbody').children().val()); // so far, this is doing something, but not what I want.  it is creating a new row, but it doesn't seem to be in <tfoot> and is empty of values.  the original stays the same in <tbody>
+    $('#markDoneButton').on('click', function() {
+        if ($('.done').prop('checked', true)) {
+            $(this).closest('tr').addClass('move').detach().appendTo('tfoot'); //.addClass('move') intended to change backgound to gray
+            //neither .addClass() nor .detach()/.appendTo() working here
         }
     });
-    // trying to delete item from list completely, so far something is happening, but it is the same as markDone above
-    $('#remove').on('click', function() {
-        // e.preventDefault();
-        if ($('.delete').checked) {
-            $(this).parentsUntil('tbody').remove();
+    // delete item from list completely
+    $('#removeButton').on('click', function() {
+        if ($('.delete').prop('checked', true)) {
+            $(this).closest('tr').remove(); //.remove() isn't working
         }
     });
 });
+function resetInputs() {
+    // clearing input field values
+    $('#item').val('').focus();
+    $('#quantity').val('');
+    $('#cost').val('');
+    
+}
