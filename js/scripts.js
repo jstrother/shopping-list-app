@@ -40,6 +40,7 @@ $(document).ready(function() {
     });
     // moves item to <tfoot> when marked as done, returns to main list when unchecked
     $('#markDone').click(function(e) {
+        e.preventDefault();
         $('#done').change(function() {
             if (this.checked) {
                 $('tfoot').append($(this).parentsUntil('tbody')); // so far, this is doing something, but not what I want.  it is creating a new row, but it doesn't seem to be in <tfoot> and is empty of values.  the original stays the same in <tbody>
@@ -48,6 +49,7 @@ $(document).ready(function() {
     });
     // trying to delete item from list completely, so far something is happening, but it is the same as markDone above
     $('#remove').click(function(e) {
+        e.preventDefault();
         if (this.checked) {
             $(this).parentsUntil('tbody').remove();
         }
