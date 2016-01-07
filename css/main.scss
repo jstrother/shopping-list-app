@@ -84,6 +84,15 @@ main {
         }
     }
 }
+#subTotal {
+    @include outer-container;
+    p {
+        @include shift(2);
+        @include span-columns(1.5);
+        text-align: center;
+        background: $subTotalColor;
+    }
+}
 footer {
     text-align: center;
     h3 {

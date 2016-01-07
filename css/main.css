@@ -257,6 +257,25 @@ main {
     #displayList tfoot tr.move {
       background: #8c8c8c !important; }
 
+#subTotal {
+  max-width: 75em;
+  margin-left: auto;
+  margin-right: auto; }
+  #subTotal::after {
+    clear: both;
+    content: "";
+    display: table; }
+  #subTotal p {
+    margin-left: 17.02128%;
+    float: left;
+    display: block;
+    margin-right: 2.12766%;
+    width: 10.6383%;
+    text-align: center;
+    background: #203747; }
+    #subTotal p:last-child {
+      margin-right: 0; }
+
 footer {
   text-align: center; }
   footer h3 {

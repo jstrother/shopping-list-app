@@ -7,8 +7,8 @@ $(document).ready(function() {
         var item = $('#item').val();
         var quantity = $('#quantity').val();
         var cost = $('#cost').val();
-        var done = $('<td><input type=\"checkbox\" class=\"done\" name=\"done\" value=\"Done\"></td>');
-        var remove = $('<td><input type=\"checkbox\" class=\"delete\" name=\"delete\" value=\"Delete\"></td>');
+        var done = $('<td><input type="checkbox" class="done" name="done" value="Done"></td>');
+        var remove = $('<td><input type="checkbox" class="delete" name="delete" value="Delete"></td>');
         var tr = $('<tr id=tr' + counter + '>').append($('<td>').text(item)).append($('<td>').text(quantity)).append($('<td>').text(cost)).append(done).append(remove);
         var fixHelper = function(e, ui) {
             ui.children().each(function() {
@@ -27,6 +27,7 @@ $(document).ready(function() {
             }
         });
         resetInputs();
+        updateSubtotal();
     });
     $('#resetButton').click(function(e) {
         e.preventDefault();
@@ -34,16 +35,20 @@ $(document).ready(function() {
     });
     // moves item to <tfoot> when marked as done, returns to main list when unchecked
     $('#markDoneButton').on('click', function() {
-        if ($('.done').prop('checked', true)) {
-            $(this).closest('tr').addClass('move').detach().appendTo('tfoot'); //.addClass('move') intended to change backgound to gray
-            //neither .addClass() nor .detach()/.appendTo() working here
-        }
+        $('.done').each(function() {
+            if ($(this).prop('checked')) {
+                $(this).closest('tr').addClass('move').detach().appendTo('tfoot');
+            }
+        });
     });
     // delete item from list completely
     $('#removeButton').on('click', function() {
-        if ($('.delete').prop('checked', true)) {
-            $(this).closest('tr').remove(); //.remove() isn't working
-        }
+        $('.delete').each(function() {
+            if ($(this).prop('checked')){
+                $(this).closest('tr').remove();
+            }
+        });
+        updateSubtotal();
     });
 });
 function resetInputs() {
@@ -52,4 +57,14 @@ function resetInputs() {
     $('#quantity').val('');
     $('#cost').val('');
     
+}
+function updateSubtotal() {
+    // keeps track of total cost from the list
+    var subtotal = 0;
+    $('tbody tr').each(function() {
+        var item = $(this);
+        var price = parseFloat(item.children()[2].innerHTML);
+        subtotal += price;
+    });
+    $('#subTotal').html('<p>Total: $' + subtotal.toFixed(2) + '</p>');
 }
