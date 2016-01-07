@@ -65,7 +65,7 @@ function updateSubtotal() {
         var item = $(this);
         var quantity = parseFloat(item.children()[1].innerHTML);
         var price = parseFloat(item.children()[2].innerHTML);
-        subtotal += (price + quantity);
+        subtotal += (price * quantity);
     });
     $('#subTotal').html('<p>Total: $' + subtotal.toFixed(2) + '</p>');
 }
