@@ -7,9 +7,10 @@ $(document).ready(function() {
         var item = $('#item').val();
         var quantity = $('#quantity').val();
         var cost = $('#cost').val();
+        var itemTotal = quantity * cost;
         var done = $('<td><input type="checkbox" class="done" name="done" value="Done"></td>');
         var remove = $('<td><input type="checkbox" class="delete" name="delete" value="Delete"></td>');
-        var tr = $('<tr id=tr' + counter + '>').append($('<td>').text(item)).append($('<td>').text(quantity)).append($('<td>').text(cost)).append(done).append(remove);
+        var tr = $('<tr id=tr' + counter + '>').append($('<td>').html(item)).append($('<td>').html(quantity)).append($('<td>').html('$' + cost)).append($('<td>').html('$' + itemTotal.toFixed(2))).append(done).append(remove);
         var fixHelper = function(e, ui) {
             ui.children().each(function() {
                 $(this).width($(this).width());
@@ -38,6 +39,8 @@ $(document).ready(function() {
         $('.done').each(function() {
             if ($(this).prop('checked')) {
                 $(this).closest('tr').addClass('move').detach().appendTo('tfoot');
+            } else {
+                $(this).closest('tr').removeClass('move').detach().appendTo('tbody');
             }
         });
     });
@@ -63,9 +66,13 @@ function updateSubtotal() {
     var subtotal = 0;
     $('tbody tr').each(function() {
         var item = $(this);
-        var quantity = parseFloat(item.children()[1].innerHTML);
-        var price = parseFloat(item.children()[2].innerHTML);
-        subtotal += (price * quantity);
+        var itemTotal = parseFloat(item.children()[3].innerHTML.slice(1));
+        subtotal += itemTotal;
     });
-    $('#subTotal').html('<p>Total: $' + subtotal.toFixed(2) + '</p>');
+    $('tfoot tr').each(function() {
+        var item = $(this);
+        var itemTotal = parseFloat(item.children()[3].innerHTML.slice(1));
+        subtotal += itemTotal;
+    });
+    $('#subTotal p').html('Total: $' + subtotal.toFixed(2));
 }
